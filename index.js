@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var xlsx = require('node-xlsx');
 var fs = require('fs');
 

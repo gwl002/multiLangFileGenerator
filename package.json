@@ -1,5 +1,27 @@
 {
   "dependencies": {
+    "commander": "^2.20.0",
     "node-xlsx": "^0.14.1"
-  }
+  },
+  "name": "multilangfilegenerator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "i18n-cli": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gwl002/multiLangFileGenerator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gwl002/multiLangFileGenerator/issues"
+  },
+  "homepage": "https://github.com/gwl002/multiLangFileGenerator#readme",
+  "description": ""
 }
