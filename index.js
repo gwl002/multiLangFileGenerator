@@ -22,9 +22,39 @@ function createFiles(){
 	for(let i=1;i<excelObj.length;i++){
 		let row = excelObj[i];
 		let name = row[0];
-		json1[name] = row[1];
-		json2[name] = row[2];
-		json3[name] = row[3];
+		let splitNames = name.split(".");
+		if(splitNames.length > 1){
+			console.log(splitNames);
+			splitNames.reduce((obj,name,index,arr)=>{
+				if(!obj[name] && index !== arr.length-1){
+					obj[name] = {}
+				}else if(index === arr.length - 1 ){
+					obj[name] = row[1]
+				}
+				return obj[name];
+			},json1);
+			splitNames.reduce((obj,name,index,arr)=>{
+				if(!obj[name] && index !== arr.length-1){
+					obj[name] = {}
+				}else if(index === arr.length - 1 ){
+					obj[name] = row[2]
+				}
+				return obj[name];
+			},json2);
+			splitNames.reduce((obj,name,index,arr)=>{
+				if(!obj[name] && index !== arr.length-1){
+					obj[name] = {}
+				}else if(index === arr.length - 1 ){
+					obj[name] = row[3]
+				}
+				return obj[name];
+			},json3)
+		}else{
+			json1[name] = row[1];
+			json2[name] = row[2];
+			json3[name] = row[3];
+		}
+		
 	}
 	fs.writeFileSync(__dirname + "/" + fileName1 + ".json",JSON.stringify(json1,null,4),{});
 	fs.writeFileSync(__dirname + "/" + fileName2 + ".json",JSON.stringify(json2,null,4),{});
